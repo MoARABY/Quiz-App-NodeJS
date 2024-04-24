@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Quiz App</title>
+    <script>
+        const answerQuestions = (ques_id) => {
+            const ques = document.getElementById(ques_id)
+            ques.style.display = "block"
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Quiz App</h1>
+    <ol>
+        <% arr.forEach((ele,index)=> { %>
+            <li class=>
+                <p>
+                    <%= ele.question %>
+                </p>
+                <ul>
+                    <% ele.incorrect_answers.concat(ele.correct_answer).forEach(answer=> {%>
+                        <li>
+                            <%= answer %>
+                        </li>
+                        <% }); %>
+                </ul>
+                <p id="answer-<%= index %>" style="display: none;">
+                    Correct Answer : <%= ele.correct_answer%>
+                </p>
+                <button onclick="answerQuestions('answer-<%=index %>')">
+                    show the answer
+                </button>
+            </li>
+            <% }) %>
+    </ol>
+    <a href="/" class="back-Btn">Start Over the Quiz</a>
+</body>
+
+</html>
